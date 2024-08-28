@@ -291,6 +291,9 @@ function create_order_and_redirect() {
             'return_url' => 'https://your-website.com/thank-you', // URL для возврата после оплаты
         ),
         'description' => 'Оплата заказа №12345',
+        "metadata" => array(
+            "order_id": "order123"
+        ),
     );
     
     // Кодировка данных в JSON
