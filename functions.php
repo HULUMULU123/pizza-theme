@@ -292,7 +292,7 @@ function create_order_and_redirect() {
         ),
         'description' => 'Оплата заказа №12345',
         "metadata" => array(
-            "order_id": "order123"
+            "order_id"=> $order_id,
         ),
     );
     
