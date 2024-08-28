@@ -27,7 +27,7 @@ switch ($paymentStatus) {
         $order_status = 'on-hold'; // Статус по умолчанию или игнорируем события
         break;
 }
-
+file_put_contents('/var/log/yookassa_webhook.log', print_r($eventData, true), FILE_APPEND);
 
 if ($order_id) {
     $order = wc_get_order($order_id);
