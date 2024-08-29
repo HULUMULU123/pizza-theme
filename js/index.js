@@ -55,6 +55,33 @@ window.addEventListener("scroll", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+// Функция для форматирования чисел с разделением тысяч и двумя знаками после запятой
+  function formatNumber(number) {
+    // Разделение числа на целую и дробную части
+    let [integerPart, decimalPart] = number.toFixed(2).split(".");
+
+    // Форматирование целой части с разделением тысяч
+    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+    // Возвращаем отформатированное число
+    return ${integerPart},${decimalPart};
+  }
+
+  // Найдите все элементы, содержащие цены
+  // Пример: если у вас есть элементы с классом 'woocommerce-price' или 'woocommerce-Price-amount'
+  var priceElements = document.querySelectorAll(
+    ".woocommerce-price, .woocommerce-Price-amount",
+    ".total-price"
+  );
+
+  priceElements.forEach(function (element) {
+    // Извлечь текст из элемента и заменить его отформатированной ценой
+    var rawPrice = element.textContent.replace(/[^0-9.,]/g, ""); // Убираем все, кроме чисел и знаков
+    var formattedPrice = formatNumber(parseFloat(rawPrice.replace(",", ".")));
+    element.textContent = element.textContent.replace(rawPrice, formattedPrice);
+  });
+
+  
   let availableWidth = screen.availWidth;
   console.log(availableWidth);
 
