@@ -1377,6 +1377,6 @@ a {
 }
 
 ::selection {
-  background-color: ##e05a10; /* Цвет фона выделенного текста */
+  background-color: #e05a10; /* Цвет фона выделенного текста */
   color: #fff; /* Цвет текста */
 }
