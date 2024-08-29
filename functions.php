@@ -267,6 +267,7 @@ function create_order_and_redirect() {
 
     // Сохраняем заказ
     $order->save();
+    WC()->cart->empty_cart();
     // $amount = $order->get_total();
     $amount = number_format($order->get_total(), 2, '.', '');
 
