@@ -52,7 +52,7 @@ if (class_exists('WooCommerce')){
     
     <li>Delivery: <span class="shipping-price"></span></li>
     <span></span>
-    <li>Total: $<span class="total-price"></span></li>
+    <li>Total: <span class="total-price"></span> ₽</li>
   </ul>
 </div>
 <div class="cart-buttons">
