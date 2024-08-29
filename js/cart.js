@@ -1,10 +1,30 @@
+function formatNumber(number) {
+  // Разделение числа на целую и дробную части
+  let [integerPart, decimalPart] = number.toFixed(2).split(".");
+
+  // Форматирование целой части с разделением тысяч
+  integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+  // Возвращаем отформатированное число
+  return `${integerPart},${decimalPart}`;
+}
+
+function finalNumber(element, data) {
+  // Извлечь текст из элемента и заменить его отформатированной ценой
+  var newData = parseFloat(data).toFixed(2);
+  var rawPrice = newData.replace(/[^0-9.,]/g, ""); // Убираем все, кроме чисел и знаков
+  var formattedPrice = formatNumber(parseFloat(rawPrice.replace(",", ".")));
+  element.textContent = formattedPrice;
+  console.log("format", formattedPrice);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var cartQuantityHeader = document.querySelector(".cart-quantity");
   var cartTotal = document.querySelector(".cart-total-price");
   var totalPrice = document.querySelector(".total-price");
   var shippingPirce = document.querySelector(".shipping-price");
   cartTotal.innerHTML = cart_data.initial_data;
-  totalPrice.innerHTML = cart_data.get_total;
+  finalNumber(totalPrice, cart_data.get_total);
   shippingPirce.innerHTML = cart_data.shipping;
   var orderBtn = document.querySelector("#order");
   // Выводим данные из PHP в консоль
@@ -43,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //     "Response from PHP: " + data.received_data;
             itemQuantity.textContent = `Quantity: ${data.received_data}`;
             cartTotal.innerHTML = data.total_cart;
+            finalNumber(totalPrice, data.get_total);
           })
           .catch((error) => console.error("Error:", error));
       }, 500);
@@ -72,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //     "Response from PHP: " + data.received_data;
             itemQuantity.textContent = `Quantity: ${data.received_data}`;
             cartTotal.innerHTML = data.total_cart;
+            finalNumber(totalPrice, data.get_total);
           })
           .catch((error) => console.error("Error:", error));
       }, 500);
@@ -100,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //     "Response from PHP: " + data.received_data;
 
             cartTotal.innerHTML = data.total_cart;
-            totalPrice.innerHTML = data.get_total;
+            finalNumber(totalPrice, data.get_total);
             element.remove();
             cartQuantityHeader.textContent = data.quantity;
             var cart_items = cartItems.querySelectorAll("li");
@@ -109,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
               console.log(emptyCart);
               emptyCart.classList.add("empty-cart");
               emptyCart.textContent = "Your cart is empty.";
+              shippingPrice.innerHTML = "0,00";
               cartItems.appendChild(emptyCart);
             }
           })
