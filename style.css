@@ -619,10 +619,10 @@ a {
 .section-contacts {
   display: grid;
   grid-template-areas:
-    "h h h"
-    "a a a"
-    "b c c"
-    "b c c";
+    "h h h h"
+    "a a a a"
+    "b b c c"
+    "b b c c";
   gap: 1rem;
   background: #629e5f;
   padding: 1rem;
@@ -773,8 +773,10 @@ a {
   border-radius: 5px;
   padding: 2rem 4rem;
   width: 80%;
-  display: flex;
-  justify-content: space-between;
+/*   display: flex; */
+/*   justify-content: space-between; */
+  display:grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   align-items: center;
 }
 
@@ -808,7 +810,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .change-quantity {
@@ -826,9 +829,10 @@ a {
 }
 .item-price {
   color: #003366;
-  width: 25%;
+  width: 90%;
   font-size: 1.5rem;
   font-weight: 600;
+  text-align:center;
 }
 
 .cart-total {
