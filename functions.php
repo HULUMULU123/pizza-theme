@@ -269,7 +269,7 @@ function create_order_and_redirect() {
     $order->save();
     // $amount = $order->get_total();
     $amount = number_format($order->get_total(), 2, '.', '');
-
+    WC()->cart->empty_cart();
 
     
 
