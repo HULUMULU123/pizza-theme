@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
     // Возвращаем отформатированное число
-    return ${integerPart},${decimalPart};
+    return `${integerPart},${decimalPart}`;
   }
 
   // Найдите все элементы, содержащие цены
