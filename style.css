@@ -874,6 +874,7 @@ a {
   border-radius: 10px;
   text-transform: uppercase;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .cart-buttons input:active {
@@ -1369,4 +1370,9 @@ a {
     width: 100%;
     padding: 20px;
   }
+}
+
+::selection {
+  background-color: ##e05a10; /* Цвет фона выделенного текста */
+  color: #fff; /* Цвет текста */
 }
