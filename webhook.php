@@ -12,7 +12,7 @@ if (!isset($eventData['type']) || !isset($eventData['object']['id'])) {
 }
 
 $order_id = $eventData['object']['metadata']['order_id']; // Предполагается, что ID заказа передается в метаданных
-$paymentStatus = $eventData['type'];
+$paymentStatus = $eventData['event'];
 
 switch ($paymentStatus) {
     case 'payment.succeeded':
