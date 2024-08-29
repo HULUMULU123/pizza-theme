@@ -481,7 +481,8 @@ a {
 
 .cart-div {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  align-items: center;
 }
 
 .added_to_cart {
