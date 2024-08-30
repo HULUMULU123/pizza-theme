@@ -58,7 +58,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
         // Вставляем код для отображения товаров в данной категории
         $args = array(
             'post_type'      => 'product',
-            'posts_per_page' => 4, // Количество товаров для показа
+            'posts_per_page' => 10, // Количество товаров для показа
             'tax_query'      => array(
                 array(
                     'taxonomy' => 'product_cat',
