@@ -1339,7 +1339,9 @@ a {
     padding: 1rem 0;
   }
   .cart-item-quantity {
-    width: 40%;
+    width: 55%;
+    margin: 0 auto;
+    gap: 1rem;
   }
   .cart-item {
     padding: 0.3rem;
@@ -1349,12 +1351,14 @@ a {
   }
 
   .cart-item-heading {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin: 0 auto;
   }
 
   .item-price {
     font-size: 1rem;
     text-align: center;
+    margin: 0 auto;
   }
 
   .item-quantity {
@@ -1384,12 +1388,13 @@ a {
   .cart-total > ul > li {
     font-size: 1.5rem;
   }
-  .cart-buttons input {
+  .customer-information {
     font-size: 1rem !important;
     padding: 0.75rem 1.25rem !important;
   }
   .order-btn {
     font-size: 1.5rem !important;
+    padding: 0.75rem 1.25rem;
   }
 }
 
