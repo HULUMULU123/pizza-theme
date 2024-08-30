@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
               console.log(emptyCart);
               emptyCart.classList.add("empty-cart");
               emptyCart.textContent = "Your cart is empty.";
-              shippingPrice.innerHTML = "0,00";
+              shippingPirce.innerHTML = "0,00";
               cartItems.appendChild(emptyCart);
             }
           })

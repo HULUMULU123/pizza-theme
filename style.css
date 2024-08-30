@@ -830,6 +830,15 @@ a {
   border: 1px solid rgb(255, 163, 58);
   border-radius: 200px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.change-quantity:active {
+  transform: scale(0.95);
+}
+
+.change-quantity:hover {
+  background: #fcb25c;
 }
 
 .item-quantity {
@@ -963,6 +972,7 @@ a {
 .empty-cart {
   font-size: 2rem;
   color: #fff;
+  text-align: center;
 }
 .menu-toggle {
   display: none !important;
