@@ -457,7 +457,7 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
 
   justify-content: center;
-  gap: calc(2%);
+  gap: 2rem;
 }
 
 .section-item {
@@ -1503,7 +1503,7 @@ a {
   }
 
   .section-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .section-contacts {
