@@ -1339,7 +1339,7 @@ a {
     padding: 1rem 0;
   }
   .cart-item-quantity {
-    width: 55%;
+    max-width: 55%;
     margin: 0 auto;
     gap: 1rem;
   }
