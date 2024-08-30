@@ -19,6 +19,8 @@ function finalNumber(element, data) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  var customerForm = document.getElementById("customer-form");
+
   var cartQuantityHeader = document.querySelector(".cart-quantity");
   var cartTotal = document.querySelector(".cart-total-price");
   var totalPrice = document.querySelector(".total-price");
@@ -139,37 +141,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 500);
     });
 
-    orderBtn.addEventListener("click", function () {
-      console.log("orderBtn");
-      // Создаем новый запрос
-      var xhr = new XMLHttpRequest();
+    customerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      formData.append("action", "create_order_and_redirect");
 
-      // Настраиваем запрос на сервер (POST)
-      xhr.open("POST", cart_data.ajax_url, true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      // Формируем данные для отправки
-      var data = "action=create_order_and_redirect";
-
-      // Обрабатываем ответ от сервера
-      xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 400) {
-          // Парсим ответ сервера
-          var response = JSON.parse(xhr.responseText);
-          if (response.confirmation.confirmation_url) {
-            // Перенаправляем клиента на URL оплаты
-
-            window.location.href = response.confirmation.confirmation_url;
-          } else {
-            console.error("Ошибка: Не удалось получить ссылку на оплату.");
-          }
-        } else {
-          console.error("Ошибка при запросе к серверу.");
-        }
-      };
-
-      // Отправляем запрос с данными
-      xhr.send(data);
+      setTimeout(() => {
+        fetch(cart_data.ajax_url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(formData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            window.open(data.confirmation.confirmation_url);
+          })
+          .catch((error) => console.log("Error:", error));
+      }, 500);
     });
 
     // button.addEventListener("click", function () {

@@ -55,9 +55,15 @@ if (class_exists('WooCommerce')){
     <li>Total: <span class="total-price"></span> ₽</li>
   </ul>
 </div>
-<div class="cart-buttons">
-  <input class="test" type="button" placeholder="Order now!" value="Order now!" id="order">
-</div>
+<form method="POST" class="cart-buttons" id="ccustomer-form">
+  <input type="text" name="name" class="customer-information" placeholder="Enter your name" required>
+  <label for="name" class="information-label">Name</label>
+  <input type="email" name="email" class="customer-information" placeholder="Enter your email" required>
+  <label for="email" class="information-label">Email</label>
+  <input type="text" name="address" class="customer-information" placeholder="Enter your address" required>
+  <label for="address" class="information-label">Address</label>
+  <input class="order-btn" type="submit" placeholder="Order now!" value="Order now!" id="order">
+</form>
 </div>
 <?php 
 my_theme_script();   

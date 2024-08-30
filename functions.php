@@ -206,6 +206,9 @@ add_action( 'wp_ajax_create_order_and_redirect', 'create_order_and_redirect' );
 add_action( 'wp_ajax_nopriv_create_order_and_redirect', 'create_order_and_redirect' );
 
 function create_order_and_redirect() {
+    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
+    $email = isset($_POST['email']) ? sanitize_text_field($_POST['email']) : '';
+    $address = isset($_POST['address']) ? sanitize_text_field($_POST['address']) : '';
     // Создаем новый заказ
     $cart = WC()->cart;
     
@@ -230,13 +233,13 @@ function create_order_and_redirect() {
 
     // Устанавливаем адрес покупателя
     $order->set_address( array(
-        'first_name' => 'Иван',
-        'last_name'  => 'Иванов',
-        'email'      => 'ivanov@example.com',
-        'phone'      => '1234567890',
-        'address_1'  => 'Улица Пушкина, дом Колотушкина',
-        'city'       => 'Москва',
-        'postcode'   => '101000',
+        'first_name' => $name,
+        
+        'email'      => $email,
+        
+        'address_1'  => $address,
+        'city'       => 'Moscow',
+        
         'country'    => 'RU'
     ), 'billing' );
 
@@ -290,7 +293,7 @@ function create_order_and_redirect() {
             'type' => 'redirect',
             'return_url' => 'https://your-website.com/thank-you', // URL для возврата после оплаты
         ),
-        'description' => 'Оплата заказа №12345',
+        'description' => "Оплата заказа №{$order_id}",
         "metadata" => array(
             "order_id"=> $order_id,
         ),
