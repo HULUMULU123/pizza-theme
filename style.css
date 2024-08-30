@@ -1343,7 +1343,9 @@ a {
   }
   .cart-item {
     padding: 0.3rem;
-    width: 95%;
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .cart-item-heading {
@@ -1380,11 +1382,14 @@ a {
   }
 
   .cart-total > ul > li {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .cart-buttons input {
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
+    font-size: 1rem !important;
+    padding: 0.75rem 1.25rem !important;
+  }
+  .order-btn {
+    font-size: 1.5rem !important;
   }
 }
 
