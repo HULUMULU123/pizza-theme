@@ -3,7 +3,7 @@ var header = document.querySelector(".header");
 var htmlDoc = document.querySelector(".body");
 var posts = document.querySelectorAll(".section-item");
 var foodImg = document.querySelector(".hero-img-item-1");
-// var sectionPizza = document.querySelector(".section-pizza");
+var sectionPizza = document.querySelector(".section-pizza");
 window.addEventListener("scroll", function () {
   var menu = document.querySelector(".header");
   if (window.scrollY > 100) {
@@ -18,15 +18,24 @@ window.addEventListener("scroll", function () {
   }
 });
 
+function throttle(callback, delay) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) return;
+    lastCall = now;
+    callback(...args);
+  };
+}
+
 function handleScroll() {
   window.requestAnimationFrame(() => {
     // Ваша логика обработки скролла здесь
+    console.log("Scroll event triggered");
     // Например, обновление позиции элемента
     const element = document.querySelector(".section-pizza");
-    const scrollPosition = window.pageYOffset;
-    element.style.transform = `rotate(${
-      scrollPosition.top / 10
-    }deg) scale(1.3)`;
+    const scrollPosition = window.scrollY;
+    element.style.transform = `rotate(${windowPosition / 10}deg) scale(1.3)`;
   });
 }
 
@@ -44,16 +53,7 @@ window.addEventListener("scroll", function () {
     bottom: window.pageYOffset + document.documentElement.clientHeight,
   };
 
-  window.requestAnimationFrame(() => {
-    // Ваша логика обработки скролла здесь
-    console.log("scroll TEST");
-    // Например, обновление позиции элемента
-    const element = document.querySelector(".section-pizza");
-    const scrollPosition = window.pageYOffset;
-    element.style.transform = `rotate(${
-      scrollPosition.top / 10
-    }deg) scale(1.3)`;
-  });
+  throttle(handleScroll, 16);
 
   foodCategories.forEach((category) => {
     var targetPosition = {
