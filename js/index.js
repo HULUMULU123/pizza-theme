@@ -33,7 +33,7 @@ function handleScroll() {
     // Ваша логика обработки скролла здесь
     console.log("Scroll event triggered");
     // Например, обновление позиции элемента
-    const element = document.querySelector(".section-pizza");
+    const element = document.querySelector(".hero-img-item-1");
     const scrollPosition = window.scrollY;
     element.style.transform = `rotate(${scrollPosition / 10}deg) scale(1.3)`;
   });
