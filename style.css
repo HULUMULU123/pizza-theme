@@ -33,6 +33,7 @@ html {
 }
 body {
   /* background: #d5d5d5; */
+  -webkit-overflow-scrolling: touch;
   position: relative;
   background: radial-gradient(
       circle,
