@@ -35,7 +35,7 @@ function handleScroll() {
     // Например, обновление позиции элемента
     const element = document.querySelector(".section-pizza");
     const scrollPosition = window.scrollY;
-    element.style.transform = `rotate(${windowPosition / 10}deg) scale(1.3)`;
+    element.style.transform = `rotate(${scrollPosition / 10}deg) scale(1.3)`;
   });
 }
 
