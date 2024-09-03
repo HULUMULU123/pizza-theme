@@ -53,7 +53,7 @@ window.addEventListener("scroll", function () {
     bottom: window.pageYOffset + document.documentElement.clientHeight,
   };
 
-  throttle(handleScroll, 16);
+  handleScroll();
 
   foodCategories.forEach((category) => {
     var targetPosition = {
