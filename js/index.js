@@ -18,16 +18,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-function throttle(callback, delay) {
-  let lastCall = 0;
-  return function (...args) {
-    const now = new Date().getTime();
-    if (now - lastCall < delay) return;
-    lastCall = now;
-    callback(...args);
-  };
-}
-
 function handleScroll() {
   window.requestAnimationFrame(() => {
     // Ваша логика обработки скролла здесь
@@ -54,7 +44,7 @@ window.addEventListener("scroll", function () {
     bottom: window.pageYOffset + document.documentElement.clientHeight,
   };
 
-  throttle(handleScroll, 16);
+  handleScroll();
 
   foodCategories.forEach((category) => {
     var targetPosition = {
