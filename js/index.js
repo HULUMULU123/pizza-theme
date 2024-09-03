@@ -44,7 +44,16 @@ window.addEventListener("scroll", function () {
     bottom: window.pageYOffset + document.documentElement.clientHeight,
   };
 
-  handleScroll();
+  window.requestAnimationFrame(() => {
+    // Ваша логика обработки скролла здесь
+    console.log("scroll TEST");
+    // Например, обновление позиции элемента
+    const element = document.querySelector(".section-pizza");
+    const scrollPosition = window.pageYOffset;
+    element.style.transform = `rotate(${
+      scrollPosition.top / 10
+    }deg) scale(1.3)`;
+  });
 
   foodCategories.forEach((category) => {
     var targetPosition = {
