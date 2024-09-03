@@ -2,6 +2,7 @@ var foodCategories = document.querySelectorAll(".food-category");
 var header = document.querySelector(".header");
 var htmlDoc = document.querySelector(".body");
 var posts = document.querySelectorAll(".section-item");
+var foodImg = document.querySelector(".hero-img-item-1");
 window.addEventListener("scroll", function () {
   var menu = document.querySelector(".header");
   if (window.scrollY > 100) {
@@ -29,6 +30,8 @@ window.addEventListener("scroll", function () {
     bottom: window.pageYOffset + document.documentElement.clientHeight,
   };
 
+  foodImg.computedStyleMap.transform = `rotate(${windowPosition.top / 10}deg)`;
+
   foodCategories.forEach((category) => {
     var targetPosition = {
       top: window.pageYOffset + category.getBoundingClientRect().top,
@@ -55,7 +58,7 @@ window.addEventListener("scroll", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-// Функция для форматирования чисел с разделением тысяч и двумя знаками после запятой
+  // Функция для форматирования чисел с разделением тысяч и двумя знаками после запятой
   function formatNumber(number) {
     // Разделение числа на целую и дробную части
     let [integerPart, decimalPart] = number.toFixed(2).split(".");
@@ -81,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     element.textContent = element.textContent.replace(rawPrice, formattedPrice);
   });
 
-  
   let availableWidth = screen.availWidth;
   console.log(availableWidth);
 

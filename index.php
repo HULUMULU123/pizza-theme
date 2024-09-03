@@ -26,7 +26,7 @@ get_header();
             </div>
             <div class="hero-img">
               <!-- <img src="/img/food.png" alt="hero-img" class="hero-img-item" /> -->
-              <img src="<?php echo get_template_directory_uri(); ?>/images/food.png" alt="<?php bloginfo('name'); ?>" class="logo-img">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/food.png" alt="<?php bloginfo('name'); ?>" class="logo-img hero-img-item-1">
             </div>
           </div>
         </section>

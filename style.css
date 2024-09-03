@@ -158,6 +158,10 @@ a {
   height: 100%;
 }
 
+.hero-img-item-1 {
+  transform: scale(1.2);
+}
+
 .header1 {
   top: 0;
   z-index: 999;
@@ -222,6 +226,8 @@ a {
   z-index: 1;
   width: 500px;
   height: 500px;
+  border-radius: 100%;
+  box-shadow: -30px 13px 23px 7px rgba(21, 21, 21, 0.75);
 }
 .hero-img-item {
   width: 100%;
