@@ -30,7 +30,7 @@ window.addEventListener("scroll", function () {
     bottom: window.pageYOffset + document.documentElement.clientHeight,
   };
 
-  foodImg.computedStyleMap.transform = `rotate(${windowPosition.top / 10}deg)`;
+  foodImg.style.transform = `rotate(${windowPosition.top / 10}deg)`;
 
   foodCategories.forEach((category) => {
     var targetPosition = {
