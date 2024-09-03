@@ -469,7 +469,8 @@ a {
 .section-item {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(14, 55, 3, 0.6);
+  box-shadow: 0px 1px 8px 1px rgba(21, 21, 21, 0.5);
   transition: transform 0.4s;
   display: flex;
   flex-direction: column;
@@ -1592,6 +1593,9 @@ a {
     font-size: 1.5rem !important;
     padding: 0.75rem 1.25rem;
   }
+  .hero-img2 {
+    display: none;
+  }
 }
 
 .menu-toggle {
@@ -1642,4 +1646,9 @@ a {
 ::selection {
   background-color: #e05a10; /* Цвет фона выделенного текста */
   color: #fff; /* Цвет текста */
+}
+
+.hero-img2 {
+  width: 300px;
+  height: 300px;
 }
