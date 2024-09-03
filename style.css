@@ -160,6 +160,7 @@ a {
 }
 
 .hero-img-item-1 {
+  will-change: transform;
   transform: scale(1.3);
 }
 
